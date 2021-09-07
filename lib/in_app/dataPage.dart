@@ -55,7 +55,7 @@ class _DataPageState extends State<DataPage> {
     setState(() {
       loading = true;
     });
-    final response = await http.post(DataUrl.showData, body: {"mitra": mitra});
+    final response = await http.post(DataUrl.showData, body: {"mitra": mitra, "id": id});
     if (response.contentLength == 2) {
       //   await getPref();
       // final response =

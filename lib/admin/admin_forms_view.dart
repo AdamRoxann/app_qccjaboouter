@@ -35,7 +35,6 @@ class _AdminFormsViewState extends State<AdminFormsView> {
       _imageFile4,
       _imageFile5,
       _imageFile6;
-      
 
   DateTime selectedDateOpen = DateTime.now();
   DateTime selectedDateClose = DateTime.now();
@@ -202,9 +201,7 @@ class _AdminFormsViewState extends State<AdminFormsView> {
       Navigator.of(context).popUntil((_) => count++ >= 2);
       print(message);
       // _showToast(message);
-    } else {
-
-    }
+    } else {}
   }
 
   _pilihGallery(File imagenya) async {
@@ -974,11 +971,14 @@ class _AdminFormsViewState extends State<AdminFormsView> {
                                                         const EdgeInsets.only(
                                                             top: 10.0,
                                                             bottom: 10.0),
-                                                    child: Text(x.kondisisite_afterrecon_v1 ?? "",
+                                                    child: Text(
+                                                        x.kondisisite_afterrecon_v1 ??
+                                                            "",
                                                         style: TextStyle(
                                                             fontWeight:
                                                                 FontWeight
-                                                                    .bold)),),
+                                                                    .bold)),
+                                                  ),
                                                   Divider(
                                                     height: 2,
                                                     color: Colors.black,
@@ -990,14 +990,18 @@ class _AdminFormsViewState extends State<AdminFormsView> {
                                                     child: Text("Keterangan :"),
                                                   ),
                                                   FocusScope(
-                                                  node: new FocusScopeNode(),
-                                                  child: new TextFormField(
-                                                    readOnly: true,
-                                                    controller: keterangan_solusi,
-                                                    decoration: new InputDecoration(
-                                                      hintText: 'You cannot focus me',
-                                                    ),)
-                                                  ),
+                                                      node:
+                                                          new FocusScopeNode(),
+                                                      child: new TextFormField(
+                                                        readOnly: true,
+                                                        controller:
+                                                            keterangan_solusi,
+                                                        decoration:
+                                                            new InputDecoration(
+                                                          hintText:
+                                                              'You cannot focus me',
+                                                        ),
+                                                      )),
                                                   // TextFormField(
                                                   //   onSaved: (e) =>
                                                   //       keterangan = e,
@@ -1214,6 +1218,32 @@ class _AdminFormsViewState extends State<AdminFormsView> {
                                                                   bottom: 20.0),
                                                           child: Text(x
                                                               .tanggalclose_afterrecon)),
+                                                      Divider(
+                                                        height: 2,
+                                                        color: Colors.black,
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                top: 15.0),
+                                                        child: Text(
+                                                            "Keterangan :"),
+                                                      ),
+                                                      FocusScope(
+                                                          node:
+                                                              new FocusScopeNode(),
+                                                          child:
+                                                              new TextFormField(
+                                                            readOnly: true,
+                                                            controller:
+                                                                keterangan_solusi,
+                                                            decoration:
+                                                                new InputDecoration(
+                                                              hintText:
+                                                                  'You cannot focus me',
+                                                            ),
+                                                          )),
                                                       // Text(
                                                       //   "Tanggal Pengajuan",
                                                       //   style: TextStyle(
@@ -1269,7 +1299,7 @@ class _AdminFormsViewState extends State<AdminFormsView> {
                                           // if (totalPrices.isEmpty) {
                                           //   _showToast("Keranjang Kosong");
                                           // } else {
-                                            reject();
+                                          reject();
                                           // }
                                           // orderNow();
                                           // Navigator.push(
@@ -1314,7 +1344,8 @@ class _AdminFormsViewState extends State<AdminFormsView> {
                                             context,
                                             new MaterialPageRoute(
                                               builder: (context) =>
-                                                  AdminJenisPage(x.id.toString()),
+                                                  AdminJenisPage(
+                                                      x.id.toString()),
                                             ),
                                           );
                                         },
@@ -1342,8 +1373,12 @@ class _AdminFormsViewState extends State<AdminFormsView> {
                                         onPressed: () {
                                           // check();
                                           setState(() {
-                                                _launchInBrowser(PDFUrl.export+x.id_tiket.toString()+x.siteid.toString()+"/"+x.id.toString());
-                                                                                    });
+                                            _launchInBrowser(PDFUrl.export +
+                                                x.id_tiket.toString() +
+                                                x.siteid.toString() +
+                                                "/" +
+                                                x.id.toString());
+                                          });
                                         },
                                         color: Color(0xffe3724b),
                                         child: Text("Lihat PDF",

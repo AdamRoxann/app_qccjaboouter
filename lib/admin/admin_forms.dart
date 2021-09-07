@@ -393,7 +393,8 @@ class _AdminFormsState extends State<AdminForms> {
           "jenis_recon_v1": widget.jenis,
           "alasan": _mySelection2,
           "type": "Without Image",
-          "tanggal_close_revisi": tanggal_close_revisi.toString()
+          "tanggal_close_revisi": tanggal_close_revisi.toString(),
+          "keterangan": keterangan,
         });
 
         final data = jsonDecode(response.body);
@@ -583,6 +584,7 @@ class _AdminFormsState extends State<AdminForms> {
           request.fields['alasan'] = _mySelection2;
           request.fields['tanggal_close_revisi'] =
               tanggal_close_revisi.toString();
+          request.fields['keterangan'] = keterangan;
           // request.fields['post_title'] = post_title;
           // request.fields['post_location'] = post_location;
 
@@ -1850,26 +1852,47 @@ class _AdminFormsState extends State<AdminForms> {
                                                             top: 15.0),
                                                     child: Text("Keterangan :"),
                                                   ),
-                                                  FocusScope(
-                                                      node:
-                                                          new FocusScopeNode(),
-                                                      child: new TextFormField(
-                                                        validator: (e) {
-                                                          if (e.isEmpty) {
-                                                            return "Field tidak boleh kosong";
-                                                          }
-                                                        },
-                                                        onSaved: (e) =>
-                                                            keterangan = e,
-                                                        // readOnly: true,
-                                                        controller:
-                                                            keterangan_solusi,
-                                                        decoration:
-                                                            new InputDecoration(
-                                                          hintText:
-                                                              'You cannot focus me',
+                                                  TextFormField(
+                                                    validator: (e) {
+                                                      if (e.isEmpty) {
+                                                        return "Field tidak boleh kosong";
+                                                      }
+                                                    },
+                                                    controller:
+                                                        keterangan_solusi,
+                                                    onSaved: (e) =>
+                                                        keterangan = e,
+                                                    // controller: catResi,
+                                                    keyboardType:
+                                                        TextInputType.multiline,
+                                                    maxLines: null,
+                                                    decoration: InputDecoration(
+                                                        // labelText: 'Contoh: Sambalnya dipisah ya!',
+                                                        labelStyle: TextStyle(
+                                                          color:
+                                                              Color(0xFFBDC3C7),
+                                                          fontSize: 15,
+                                                          fontFamily:
+                                                              'Poppins Regular',
                                                         ),
-                                                      )),
+                                                        // border: InputBorder.none,
+                                                        // focusedBorder: InputBorder.none,
+                                                        // enabledBorder: InputBorder.none,
+                                                        // errorBorder: InputBorder.none,
+                                                        // disabledBorder: InputBorder.none,
+                                                        hintText: "Wajib diisi"
+                                                        // enabledBorder: OutlineInputBorder(
+                                                        //   borderRadius: BorderRadius.circular(10),
+                                                        //   borderSide: BorderSide(
+                                                        //     color: Color(0xFF7F8C8D),
+                                                        //   ),
+                                                        // ),
+                                                        // focusedBorder: OutlineInputBorder(
+                                                        //   borderRadius: BorderRadius.circular(10),
+                                                        //   borderSide: BorderSide(color: Colors.black),
+                                                        // ),
+                                                        ),
+                                                  ),
                                                   // TextFormField(
                                                   //   onSaved: (e) =>
                                                   //       keterangan = e,
@@ -1971,27 +1994,48 @@ class _AdminFormsState extends State<AdminForms> {
                                                         child: Text(
                                                             "Keterangan :"),
                                                       ),
-                                                      FocusScope(
-                                                          node:
-                                                              new FocusScopeNode(),
-                                                          child:
-                                                              new TextFormField(
-                                                            validator: (e) {
-                                                              if (e.isEmpty) {
-                                                                return "Field tidak boleh kosong";
-                                                              }
-                                                            },
-                                                            onSaved: (e) =>
-                                                                keterangan = e,
-                                                            // readOnly: true,
-                                                            controller:
-                                                                keterangan_solusi,
-                                                            decoration:
-                                                                new InputDecoration(
-                                                              hintText:
-                                                                  'Wajib Diisi',
+                                                      TextFormField(
+                                                        validator: (e) {
+                                                          if (e.isEmpty) {
+                                                            return "Field tidak boleh kosong";
+                                                          }
+                                                        },
+                                                        controller:
+                                                            keterangan_solusi,
+                                                        onSaved: (e) =>
+                                                            keterangan = e,
+                                                        // controller: catResi,
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .multiline,
+                                                        maxLines: null,
+                                                        decoration: InputDecoration(
+                                                            // labelText: 'Contoh: Sambalnya dipisah ya!',
+                                                            labelStyle: TextStyle(
+                                                              color: Color(
+                                                                  0xFFBDC3C7),
+                                                              fontSize: 15,
+                                                              fontFamily:
+                                                                  'Poppins Regular',
                                                             ),
-                                                          )),
+                                                            // border: InputBorder.none,
+                                                            // focusedBorder: InputBorder.none,
+                                                            // enabledBorder: InputBorder.none,
+                                                            // errorBorder: InputBorder.none,
+                                                            // disabledBorder: InputBorder.none,
+                                                            hintText: "Wajib diisi"
+                                                            // enabledBorder: OutlineInputBorder(
+                                                            //   borderRadius: BorderRadius.circular(10),
+                                                            //   borderSide: BorderSide(
+                                                            //     color: Color(0xFF7F8C8D),
+                                                            //   ),
+                                                            // ),
+                                                            // focusedBorder: OutlineInputBorder(
+                                                            //   borderRadius: BorderRadius.circular(10),
+                                                            //   borderSide: BorderSide(color: Colors.black),
+                                                            // ),
+                                                            ),
+                                                      ),
                                                     ],
                                                   ),
                                                 ),
@@ -2213,6 +2257,61 @@ class _AdminFormsState extends State<AdminForms> {
                                                                     color: Colors
                                                                         .blue),
                                                               )),
+                                                      Divider(
+                                                        height: 2,
+                                                        color: Colors.black,
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                top: 15.0),
+                                                        child: Text(
+                                                            "Keterangan :"),
+                                                      ),
+                                                      TextFormField(
+                                                        validator: (e) {
+                                                          if (e.isEmpty) {
+                                                            return "Field tidak boleh kosong";
+                                                          }
+                                                        },
+                                                        controller:
+                                                            keterangan_solusi,
+                                                        onSaved: (e) =>
+                                                            keterangan = e,
+                                                        // controller: catResi,
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .multiline,
+                                                        maxLines: null,
+                                                        decoration: InputDecoration(
+                                                            // labelText: 'Contoh: Sambalnya dipisah ya!',
+                                                            labelStyle: TextStyle(
+                                                              color: Color(
+                                                                  0xFFBDC3C7),
+                                                              fontSize: 15,
+                                                              fontFamily:
+                                                                  'Poppins Regular',
+                                                            ),
+                                                            // border: InputBorder.none,
+                                                            // focusedBorder: InputBorder.none,
+                                                            // enabledBorder: InputBorder.none,
+                                                            // errorBorder: InputBorder.none,
+                                                            // disabledBorder: InputBorder.none,
+                                                            hintText: "Wajib diisi"
+                                                            // enabledBorder: OutlineInputBorder(
+                                                            //   borderRadius: BorderRadius.circular(10),
+                                                            //   borderSide: BorderSide(
+                                                            //     color: Color(0xFF7F8C8D),
+                                                            //   ),
+                                                            // ),
+                                                            // focusedBorder: OutlineInputBorder(
+                                                            //   borderRadius: BorderRadius.circular(10),
+                                                            //   borderSide: BorderSide(color: Colors.black),
+                                                            // ),
+                                                            ),
+                                                      ),
+                                                      // ),
                                                     ],
                                                   ),
                                                 ),

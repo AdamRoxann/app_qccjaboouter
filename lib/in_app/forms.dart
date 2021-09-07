@@ -379,6 +379,7 @@ class _FormPageState extends State<FormPage> {
         request.fields['alasan'] = _mySelection2;
         request.fields['tanggal_close_revisi'] =
             tanggal_close_revisi.toString();
+        request.fields['keterangan'] = keterangan;
         // request.fields['post_title'] = post_title;
         // request.fields['post_location'] = post_location;
 
@@ -1371,7 +1372,7 @@ class _FormPageState extends State<FormPage> {
                                                         // enabledBorder: InputBorder.none,
                                                         // errorBorder: InputBorder.none,
                                                         // disabledBorder: InputBorder.none,
-                                                        hintText: "Optional"
+                                                        hintText: "Wajib diisi"
                                                         // enabledBorder: OutlineInputBorder(
                                                         //   borderRadius: BorderRadius.circular(10),
                                                         //   borderSide: BorderSide(
@@ -1478,7 +1479,7 @@ class _FormPageState extends State<FormPage> {
                                                             // enabledBorder: InputBorder.none,
                                                             // errorBorder: InputBorder.none,
                                                             // disabledBorder: InputBorder.none,
-                                                            hintText: "Optional"
+                                                            hintText: "Wajib diisi"
                                                             // enabledBorder: OutlineInputBorder(
                                                             //   borderRadius: BorderRadius.circular(10),
                                                             //   borderSide: BorderSide(
@@ -1710,6 +1711,58 @@ class _FormPageState extends State<FormPage> {
                                                                     color: Colors
                                                                         .blue),
                                                               )),
+                                                      Divider(
+                                                        height: 2,
+                                                        color: Colors.black,
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                top: 15.0),
+                                                        child: Text(
+                                                            "Keterangan :"),
+                                                      ),
+                                                      TextFormField(
+                                                        validator: (e) {
+                                                          if (e.isEmpty) {
+                                                            return "Field tidak boleh kosong";
+                                                          }
+                                                        },
+                                                        onSaved: (e) =>
+                                                            keterangan = e,
+                                                        // controller: catResi,
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .multiline,
+                                                        maxLines: null,
+                                                        decoration: InputDecoration(
+                                                            // labelText: 'Contoh: Sambalnya dipisah ya!',
+                                                            labelStyle: TextStyle(
+                                                              color: Color(
+                                                                  0xFFBDC3C7),
+                                                              fontSize: 15,
+                                                              fontFamily:
+                                                                  'Poppins Regular',
+                                                            ),
+                                                            // border: InputBorder.none,
+                                                            // focusedBorder: InputBorder.none,
+                                                            // enabledBorder: InputBorder.none,
+                                                            // errorBorder: InputBorder.none,
+                                                            // disabledBorder: InputBorder.none,
+                                                            hintText: "Wajib diisi"
+                                                            // enabledBorder: OutlineInputBorder(
+                                                            //   borderRadius: BorderRadius.circular(10),
+                                                            //   borderSide: BorderSide(
+                                                            //     color: Color(0xFF7F8C8D),
+                                                            //   ),
+                                                            // ),
+                                                            // focusedBorder: OutlineInputBorder(
+                                                            //   borderRadius: BorderRadius.circular(10),
+                                                            //   borderSide: BorderSide(color: Colors.black),
+                                                            // ),
+                                                            ),
+                                                      ),
 
                                                       // Text(
                                                       //   "Tanggal Pengajuan",
